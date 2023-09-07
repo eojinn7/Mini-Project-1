@@ -8,7 +8,7 @@ import java.lang.String;
  * when command line arguments are not of expected.
 */
 
-public class CaesarCipherNew {
+public class CaesarCipher {
 
   /*
    * errorhandling for when user inputs incorrect number of command line arguments
