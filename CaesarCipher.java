@@ -1,6 +1,12 @@
+package MP1;
 import java.lang.String;
 
-/* Takes */
+/* Takes command line arguments to implement the Caesar cipher to a word and either decoding or 
+ * encoding. Works by shifting each letter of the string down the order of the alphabet.
+ * Uses multiple helper functions, such as errorHandling, to break down different parts of the 
+ * problem. Doesn't return anything; prints out a singular encoded/decoded string on the terminal. Handles errors
+ * when command line arguments are not of expected.
+*/
 
 public class CaesarCipherNew {
 
@@ -32,34 +38,43 @@ public class CaesarCipherNew {
         en = 26 + (ch + n); 
       }
 
-      // save 
+      // save encoded value to arrays
       intArray[i] = en;
       encChar[i] = (char) (en + base);
     }
   }
 
-
+/*
+ * does the main job of initializing different variables to set up the cipher, and also
+ * providing the different paths of algorithms depending on whether the isEncode boolean
+ * is true or false
+ */
   public static void cipher(String str, boolean isEncode) {  
     java.io.PrintWriter pen;
     pen = new java.io.PrintWriter(System.out, true);
-
+    // initialize values for easy reading
     int shifts = 26;
     int base = (int) 'a';
-
+    // initialize arrays to save the characters (as char and as int) into
     int[] intArray = new int[str.length()];
     char[] encChar = new char[str.length()];
 
+    // if statement for whether we are encoding or decoding
     if (isEncode) {
       for (int n = 0; n < shifts; n++) {                       
         pen.printf("n = %d: ", n);
+        // call encodeString, which does the actual encoding of each character in string
         encodeString(str, intArray, encChar, base, n);
         String encString = new String(encChar);
+        // print encoded string
         pen.println(encString);
       }
     }
-    else {
+    else { 
+      // when we are decoding; we go down the value of n
       for (int n = shifts; n > 0; n--) {                        
         pen.printf("n = %d: ", 26 - n);
+        // call encodeString
         encodeString(str, intArray, encChar, base, n);
         String encString = new String(encChar); 
         pen.println(encString);
@@ -70,18 +85,22 @@ public class CaesarCipherNew {
 
 
   public static void main(String[] args) {
-    
+    // call errorHandling function at the very start
     errorHandling(args);
 
+    // initialize variables, assign commandline arguments to a variable
     String str = args[1];
     boolean isEncode;
 
+    // assess user input with command
     if ("encode".equals(args[0])) {
+      // set isEncode to true is user types encode
       isEncode = true;
       cipher(str, isEncode);
     }
 
     else if ("decode".equals(args[0])) {
+      // set isEncode to false is user types decode
       isEncode = false;
       cipher(str, isEncode);
     }
@@ -90,10 +109,10 @@ public class CaesarCipherNew {
     else { 
       System.err.println ("Valid options are \"encode\" or \"decode\"");
       System.exit(1);
-    }
-
-    
+    }  
   }
+
+  
 }
 
 
