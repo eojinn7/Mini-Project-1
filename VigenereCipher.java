@@ -1,7 +1,7 @@
-package MP1;
+
 import java.lang.String;
 
-public class VigenereCipher {
+public class VigenereCipherNew {
 
   /*
    * error handling for cases where the number of command line 
@@ -29,48 +29,36 @@ public class VigenereCipher {
     return replicate;
   }
 
-  public static void cipherHlper(char[] replicate, char[] keyWordArr, int base) {
+  /*
+   * encodes or decodes each letter of the plainTextArr array, depending on whether
+   * the boolean isEncode is true or false
+   */
+  public static char[] cipherHelper(char[] replicate, char[] plainTextArr, 
+  char[] result, int base, int len, boolean isEncode) {
 
   }
 
-  /*
+  /*  
    * encodes or decodes the plainText using keyWord depending on whether the
-   * boolean isEncode is true or false
+   * boolean isEncode is true or false, while initializing necessary arrays and values (
+   * many variables)
    */
   public static String cipher(String plainText, String keyWord, boolean isEncode) {
+
     int len = plainText.length();
     int base = (int) 'a';
 
     // call replicate function to replicate the keyword
-    char[] replicate = replicate(keyWord, len);
-    char[] keyWordArr = keyWord.toCharArray();
+    char[] plainTextArr = plainText.toCharArray();
+    char[] replicate = new char[len];
     char[] result = new char[len];
-    int en;
-    
-    if (isEncode) {
-      for (int i = 0; i < len; i++) {
-        int rep = replicate[i] - base;
-        int keyw = keyWordArr[i] - base;
-        if ((rep - keyw) >= 0) {
-          en = (rep - keyw) % 26;
-        } else {
-          en = 26 + (rep - keyw);
-        }
-        result[i] = (char) en;
-      }
-    }
 
+    if (len != 0) {
+      replicate = replicate(keyWord, len);
+      result = cipherHelper(replicate, plainTextArr, result, base, len, isEncode);
+    }
     else {
-      for (int i = 0; i < len; i++) {
-        int rep = replicate[i] - base;
-        int keyw = keyWordArr[i] - base;
-        if ((rep - keyw) >= 0) {
-          en = (rep + keyw) % 26;
-        } else {
-          en = 26 + (rep + keyw);
-        }
-        result[i] = (char) en;
-      }
+      result = plainTextArr;
     }
 
     String resultString = new String(result);
