@@ -36,6 +36,28 @@ public class VigenereCipherNew {
   public static char[] cipherHelper(char[] replicate, char[] plainTextArr, 
   char[] result, int base, int len, boolean isEncode) {
 
+    int en;
+
+    for (int i = 0; i < len; i++) {
+      int rep = (int) replicate[i] - base;
+      int plain = (int) plainTextArr[i] - base;
+
+      if (isEncode) {
+        en = (rep + plain) % 26;
+      }
+      else {
+        if (plain - rep >= 0) {
+          en = (plain - rep) % 26;
+        }
+        else {
+          en = 26 + plain - rep;
+        }
+      }
+      
+      result[i] = (char) (en + base);
+    }
+
+    return result;
   }
 
   /*  
