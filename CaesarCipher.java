@@ -6,6 +6,8 @@ import java.lang.String;
  * Uses multiple helper functions, such as errorHandling, to break down different parts of the 
  * problem. Doesn't return anything; prints out a singular encoded/decoded string on the terminal. Handles errors
  * when command line arguments are not of expected.
+
+ @author: Jinny Eo
 */
 
 public class CaesarCipher {
