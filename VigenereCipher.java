@@ -5,6 +5,8 @@ import java.lang.String;
  * returns the vigenere ciphered word after taking in two words, the plaintext and the keyword.
  * Repeats the keyword to fit the length of the plaintext, and adds the two ASCII characters (int values)
  * to form a new char. Both encodes and decodes depending on command line argument (user input).
+
+ @author: Jinny Eo
  */
 
 public class VigenereCipherNew {
