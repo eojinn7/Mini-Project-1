@@ -1,4 +1,6 @@
 # Mini-Project-1
+@author: Jinny Eo
+
 CaesarCipher.java:
 Implements the caesar cipher to a word, either encoding or decoding depending on the command line argument. Shifts each letter in the string down the order of the alphabet, for every possible combination, which is 26 (0 to 25) as there are 26 letters in the alphabet for it to shift down. Prints all possible combination (shifts).
 
