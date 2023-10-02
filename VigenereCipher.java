@@ -1,4 +1,3 @@
-package MP1;
 import java.lang.String;
 
 /*
