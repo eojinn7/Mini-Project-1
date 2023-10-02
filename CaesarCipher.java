@@ -1,4 +1,3 @@
-package MP1;
 import java.lang.String;
 
 /* Takes command line arguments to implement the Caesar cipher to a word and either decoding or 
