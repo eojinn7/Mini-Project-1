@@ -37,13 +37,14 @@ public class CaesarCipher {
         en = (ch + n) % 26; 
       } else {
         en = 26 + (ch + n); 
-      }
+      } // if statement
 
       // save encoded value to arrays
       intArray[i] = en;
       encChar[i] = (char) (en + base);
-    }
-  }
+    } // for loop
+   
+  } // encodeString(String str, int[] intArray, char[] encChar, int base, int n)
 
 /*
  * does the main job of initializing different variables to set up the cipher, and also
@@ -53,6 +54,7 @@ public class CaesarCipher {
   public static void cipher(String str, boolean isEncode) {  
     java.io.PrintWriter pen;
     pen = new java.io.PrintWriter(System.out, true);
+   
     // initialize values for easy reading
     int shifts = 26;
     int base = (int) 'a';
@@ -79,10 +81,10 @@ public class CaesarCipher {
         encodeString(str, intArray, encChar, base, n);
         String encString = new String(encChar); 
         pen.println(encString);
-      }
-    }
+      } // for loop
+    } // if statement
 
-  }
+  } // cipher(String str, boolean isEncode)
 
 
   public static void main(String[] args) {
@@ -110,8 +112,9 @@ public class CaesarCipher {
     else { 
       System.err.println ("Valid options are \"encode\" or \"decode\"");
       System.exit(1);
-    }  
-  }
+    } // if statement series 
+   
+  } // main(String[] args)
 
   
 }
