@@ -19,7 +19,7 @@ public class CaesarCipher {
       System.err.println ("Incorrect number of parameters ");
       System.exit(2);
     }       
-  }
+  } // errorHandling(String[] args)
 
   /*
    * encodes the string str by saving it to an intArray and then converting to char data type, using 
