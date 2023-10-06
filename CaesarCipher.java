@@ -6,7 +6,7 @@ import java.lang.String;
  * problem. Doesn't return anything; prints out a singular encoded/decoded string on the terminal. Handles errors
  * when command line arguments are not of expected.
 
- @author: Jinny Eo
+ @author (group members): Jinny Eo
 */
 
 public class CaesarCipher {
